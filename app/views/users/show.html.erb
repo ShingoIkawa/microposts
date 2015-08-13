@@ -2,8 +2,9 @@
   <%= gravatar_for @user %>
   <%= @user.name %>
   <br>
+  <br>
   <% if @user == current_user %>
-   <%= link_to "edit profile", edit_user_path(current_user) %>
+   <%= link_to "Uptade profile", edit_user_path(current_user) %>
   <% end %>
 
 </h1>
