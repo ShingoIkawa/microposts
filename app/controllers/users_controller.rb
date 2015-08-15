@@ -4,6 +4,10 @@ class UsersController < ApplicationController
     @microposts = @user.microposts
   end
   
+  def following
+    @following = @user.following
+  end
+  
   def new
     @user = User.new
   end
