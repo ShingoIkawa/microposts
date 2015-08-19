@@ -4,10 +4,12 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
-    　</h1>
-  　　<% if @user == current_user %>
-   　　<span><%= link_to "Uptade profile", edit_user_path(current_user) %></span>
-  　　<% end %>
+      </h1>
+      <% if @user == current_user %>
+       <span><%= link_to "Uptade profile", edit_user_path(current_user) %></span>
+       <span><%= link_to "Followings", followings_user_path(current_user) %></span>
+       <span><%= link_to "Followers", followers_user_path(current_user) %></span>
+      <% end %>
     </section>
   </aside>
   <div class="col-md-8">
