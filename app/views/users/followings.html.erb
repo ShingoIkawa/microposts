@@ -6,21 +6,25 @@
         <%= @user.name %>
       </h1>
       <% if @user == current_user %>
-       <span><%= link_to "Uptade profile", edit_user_path(current_user) %></span>
+       <span><%= link_to "view my profile", current_user %></span>
        <span><%= link_to "Followings", followings_user_path(current_user) %></span>
        <span><%= link_to "Followers", followers_user_path(current_user) %></span>
       <% end %>
     </section>
   </aside>
   <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>Microposts (<%= @user.microposts.count %>)</h3>
+      <%= render 'follow_form' if logged_in? %>
+    <% if @user.following_users.any? %>
+      <h4>followings (<%= @user.following_users.count %>)</h4>
       <ol class="microposts">
-        <% @microposts.each do |micropost| %>
-         <%= render partial: 'microposts/micropost', locals: { micropost: micropost } %>  
+        <% @follower.each do |follower| %>
+          <li><%= follower.name %></li>
         <% end %>
       </ol>
+    <% else %>
+       <ol class="microposts">
+         <li>No followings...</li>
+       </ol>
     <% end %>
   </div>
 </div>
